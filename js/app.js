@@ -105,7 +105,7 @@ jQuery(function ($) {
 	 * При загрузке проверить хеш-страницы и редуплицировать его.
 	 */
 	function onLoad() {
-		var text = $.trim(location.hash.replace('#', ''));
+		var text = $.trim(location.hash.replace('#', '').replace(/_/g, ' '));
 		if (text === '') {
 			text = 'текст';
 		}
@@ -117,7 +117,7 @@ jQuery(function ($) {
 	// При вводе текста меняем хеш страницы и отображаем результаты
 	txtInp.on('input', function () {
 		var text = $.trim($(this).val());
-		location.hash = text;
+		location.hash = text.replace(/\s+/gi, '_');
 		renderResults(text);
 	});
 });
