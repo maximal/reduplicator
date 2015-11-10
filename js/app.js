@@ -110,6 +110,7 @@ jQuery(function ($) {
 			text = 'текст';
 		}
 		txtInp.val(text);
+		txtInp.focus().select();
 		renderResults(text);
 	}
 	onLoad();
