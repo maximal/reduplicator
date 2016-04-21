@@ -105,7 +105,7 @@ jQuery(function ($) {
 	 * При загрузке проверить хеш-страницы и редуплицировать его.
 	 */
 	function onLoad() {
-		var text = $.trim(location.hash.replace('#', '').replace(/_/g, ' '));
+		var text = decodeURIComponent($.trim(location.hash.replace('#', '').replace(/_/g, ' ')));
 		if (text === '') {
 			text = 'текст';
 		}
